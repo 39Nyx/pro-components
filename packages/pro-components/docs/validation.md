@@ -7,12 +7,7 @@ ProForm 提供完善的表单验证能力，支持内置规则和自定义校验
 ### required - 必填
 
 ```vue
-<ProFormText
-  name="username"
-  label="用户名"
-  required
-  message="请输入用户名"
-/>
+<ProFormText name="username" label="用户名" required message="请输入用户名" />
 ```
 
 或使用 `rules`：
@@ -36,6 +31,7 @@ ProForm 提供完善的表单验证能力，支持内置规则和自定义校验
 ```
 
 支持的类型：
+
 - `string` - 字符串
 - `number` - 数字
 - `boolean` - 布尔值
@@ -62,9 +58,7 @@ ProForm 提供完善的表单验证能力，支持内置规则和自定义校验
 <ProFormDigit
   name="age"
   label="年龄"
-  :rules="[
-    { type: 'number', min: 0, max: 150, message: '请输入有效年龄' },
-  ]"
+  :rules="[{ type: 'number', min: 0, max: 150, message: '请输入有效年龄' }]"
 />
 ```
 
@@ -84,10 +78,12 @@ ProForm 提供完善的表单验证能力，支持内置规则和自定义校验
 <ProFormText
   name="phone"
   label="手机号"
-  :rules="[{
-    pattern: /^1[3-9]\d{9}$/,
-    message: '请输入正确的手机号'
-  }]"
+  :rules="[
+    {
+      pattern: /^1[3-9]\d{9}$/,
+      message: '请输入正确的手机号',
+    },
+  ]"
 />
 ```
 
@@ -97,11 +93,13 @@ ProForm 提供完善的表单验证能力，支持内置规则和自定义校验
 <ProFormText
   name="name"
   label="姓名"
-  :rules="[{
-    required: true,
-    whitespace: true,
-    message: '不能只输入空格'
-  }]"
+  :rules="[
+    {
+      required: true,
+      whitespace: true,
+      message: '不能只输入空格',
+    },
+  ]"
 />
 ```
 
@@ -111,11 +109,13 @@ ProForm 提供完善的表单验证能力，支持内置规则和自定义校验
 <ProFormText
   name="gender"
   label="性别"
-  :rules="[{
-    type: 'enum',
-    enum: ['male', 'female'],
-    message: '请选择正确的性别'
-  }]"
+  :rules="[
+    {
+      type: 'enum',
+      enum: ['male', 'female'],
+      message: '请选择正确的性别',
+    },
+  ]"
 />
 ```
 
@@ -159,15 +159,15 @@ const checkUsername = async (rule, value) => {
   if (!value) {
     return Promise.reject('请输入用户名');
   }
-  
+
   // 异步检查用户名是否已存在
   const res = await fetch(`/api/users/check?username=${value}`);
   const data = await res.json();
-  
+
   if (data.exists) {
     return Promise.reject('用户名已存在');
   }
-  
+
   return Promise.resolve();
 };
 </script>
@@ -185,15 +185,18 @@ const checkUsername = async (rule, value) => {
 <ProFormText
   name="username"
   label="用户名"
-  :rules="[{
-    required: true,
-    trigger: 'blur',  // 失焦时触发
-    message: '请输入用户名'
-  }]"
+  :rules="[
+    {
+      required: true,
+      trigger: 'blur', // 失焦时触发
+      message: '请输入用户名',
+    },
+  ]"
 />
 ```
 
 支持触发时机：
+
 - `blur` - 失焦时
 - `change` - 值变化时
 - `['blur', 'change']` - 两者都触发
@@ -216,6 +219,7 @@ const checkUsername = async (rule, value) => {
 ```
 
 状态值：
+
 - `success` - 成功
 - `warning` - 警告
 - `error` - 错误
@@ -226,11 +230,7 @@ const checkUsername = async (rule, value) => {
 显示校验反馈图标。
 
 ```vue
-<ProFormText
-  name="username"
-  label="用户名"
-  has-feedback
-/>
+<ProFormText name="username" label="用户名" has-feedback />
 ```
 
 ---
@@ -292,38 +292,47 @@ formRef.value?.clearValidate(['username', 'email']);
 ```ts
 interface Rule {
   // 规则类型
-  type?: 'string' | 'number' | 'boolean' | 'url' | 'email' | 'date' | 'array' | 'object' | 'enum';
-  
+  type?:
+    | 'string'
+    | 'number'
+    | 'boolean'
+    | 'url'
+    | 'email'
+    | 'date'
+    | 'array'
+    | 'object'
+    | 'enum';
+
   // 是否必填
   required?: boolean;
-  
+
   // 提示信息
   message?: string;
-  
+
   // 最小长度/值
   min?: number;
-  
+
   // 最大长度/值
   max?: number;
-  
+
   // 精确长度
   len?: number;
-  
+
   // 正则表达式
   pattern?: RegExp;
-  
+
   // 是否校验空格
   whitespace?: boolean;
-  
+
   // 枚举值
   enum?: any[];
-  
+
   // 自定义校验函数
   validator?: (rule: any, value: any) => Promise<void>;
-  
+
   // 触发时机
   trigger?: 'blur' | 'change' | ('blur' | 'change')[];
-  
+
   // 字段级别触发时机覆盖
   validateTrigger?: 'blur' | 'change' | ('blur' | 'change')[];
 }
@@ -400,11 +409,7 @@ const phoneRules = [
 ];
 </script>
 
-<ProFormText
-  name="phone"
-  label="手机号"
-  :rules="phoneRules"
-/>
+<ProFormText name="phone" label="手机号" :rules="phoneRules" />
 ```
 
 ### 身份证校验
@@ -414,16 +419,13 @@ const phoneRules = [
 const idCardRules = [
   { required: true, message: '请输入身份证号' },
   { len: 18, message: '身份证号必须是18位' },
-  { 
-    pattern: /^[1-9]\d{5}(19|20)\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d{3}[\dXx]$/,
-    message: '请输入正确的身份证号'
+  {
+    pattern:
+      /^[1-9]\d{5}(19|20)\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])\d{3}[\dXx]$/,
+    message: '请输入正确的身份证号',
   },
 ];
 </script>
 
-<ProFormText
-  name="idCard"
-  label="身份证号"
-  :rules="idCardRules"
-/>
+<ProFormText name="idCard" label="身份证号" :rules="idCardRules" />
 ```
