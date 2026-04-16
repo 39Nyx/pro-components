@@ -20,10 +20,7 @@ ProForm 提供灵活的提交按钮配置，支持自定义渲染。
 ### 按钮文本
 
 ```vue
-<ProForm
-  submit-button-text="保存"
-  reset-button-text="取消"
->
+<ProForm submit-button-text="保存" reset-button-text="取消">
   <!-- 表单项 -->
 </ProForm>
 ```
@@ -31,10 +28,7 @@ ProForm 提供灵活的提交按钮配置，支持自定义渲染。
 ### 按钮位置
 
 ```vue
-<ProForm
-  :label-col="{ span: 4 }"
-  :wrapper-col="{ span: 20 }"
->
+<ProForm :label-col="{ span: 4 }" :wrapper-col="{ span: 20 }">
   <!-- 按钮会跟随布局 -->
 </ProForm>
 ```
@@ -93,14 +87,22 @@ ProForm 提供灵活的提交按钮配置，支持自定义渲染。
   :submitter="{
     render: (props) => {
       return [
-        h(Button, {
-          type: 'primary',
-          loading: props.loading,
-          onClick: props.submit,
-        }, () => '提交'),
-        h(Button, {
-          onClick: props.reset,
-        }, () => '重置'),
+        h(
+          Button,
+          {
+            type: 'primary',
+            loading: props.loading,
+            onClick: props.submit,
+          },
+          () => '提交',
+        ),
+        h(
+          Button,
+          {
+            onClick: props.reset,
+          },
+          () => '重置',
+        ),
       ];
     },
   }"
@@ -137,9 +139,7 @@ const handleReset = () => {
     @reset="handleReset"
   >
     <template #default="{ submit, reset, loading }">
-      <Button type="primary" :loading="loading" @click="submit">
-        保存
-      </Button>
+      <Button type="primary" :loading="loading" @click="submit"> 保存 </Button>
       <Button @click="reset">取消</Button>
       <Button type="link" @click="handlePreview">预览</Button>
     </template>
@@ -174,14 +174,10 @@ const handleSubmit = async () => {
 <template>
   <ProForm ref="formRef">
     <!-- 表单项 -->
-    
+
     <template #actions>
-      <Button type="primary" @click="handleSubmit">
-        提交
-      </Button>
-      <Button @click="formRef?.resetFields()">
-        重置
-      </Button>
+      <Button type="primary" @click="handleSubmit"> 提交 </Button>
+      <Button @click="formRef?.resetFields()"> 重置 </Button>
     </template>
   </ProForm>
 </template>
@@ -193,25 +189,19 @@ const handleSubmit = async () => {
 <template>
   <ProForm>
     <!-- 表单项 -->
-    
+
     <template #actions>
       <!-- 新增时显示 -->
       <template v-if="!editMode">
-        <Button type="primary" @click="handleCreate">
-          创建
-        </Button>
+        <Button type="primary" @click="handleCreate"> 创建 </Button>
       </template>
-      
+
       <!-- 编辑时显示 -->
       <template v-else>
-        <Button type="primary" @click="handleUpdate">
-          更新
-        </Button>
-        <Button danger @click="handleDelete">
-          删除
-        </Button>
+        <Button type="primary" @click="handleUpdate"> 更新 </Button>
+        <Button danger @click="handleDelete"> 删除 </Button>
       </template>
-      
+
       <Button @click="handleCancel">取消</Button>
     </template>
   </ProForm>
@@ -224,28 +214,20 @@ const handleSubmit = async () => {
 <template>
   <ProForm>
     <!-- 当前步骤表单项 -->
-    
+
     <template #actions>
       <!-- 第一步不显示上一步 -->
-      <Button v-if="currentStep > 0" @click="prevStep">
-        上一步
-      </Button>
-      
+      <Button v-if="currentStep > 0" @click="prevStep"> 上一步 </Button>
+
       <!-- 最后一步显示提交 -->
-      <Button 
-        v-if="currentStep < totalSteps - 1" 
-        type="primary" 
+      <Button
+        v-if="currentStep < totalSteps - 1"
+        type="primary"
         @click="nextStep"
       >
         下一步
       </Button>
-      <Button 
-        v-else 
-        type="primary" 
-        @click="handleSubmit"
-      >
-        提交
-      </Button>
+      <Button v-else type="primary" @click="handleSubmit"> 提交 </Button>
     </template>
   </ProForm>
 </template>
@@ -257,16 +239,16 @@ const handleSubmit = async () => {
 
 ### submitter 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| submitText | 提交按钮文本 | `string` | `'提交'` |
-| resetText | 重置按钮文本 | `string` | `'重置'` |
-| showSubmit | 显示提交按钮 | `boolean` | `true` |
-| showReset | 显示重置按钮 | `boolean` | `true` |
-| render | 自定义渲染函数 | `(props) => VNode[]` | - |
+| 属性       | 说明           | 类型                 | 默认值   |
+| ---------- | -------------- | -------------------- | -------- |
+| submitText | 提交按钮文本   | `string`             | `'提交'` |
+| resetText  | 重置按钮文本   | `string`             | `'重置'` |
+| showSubmit | 显示提交按钮   | `boolean`            | `true`   |
+| showReset  | 显示重置按钮   | `boolean`            | `true`   |
+| render     | 自定义渲染函数 | `(props) => VNode[]` | -        |
 
 ### submitter 插槽
 
-| 插槽 | 说明 | 参数 |
-|------|------|------|
+| 插槽    | 说明           | 参数                         |
+| ------- | -------------- | ---------------------------- |
 | actions | 自定义按钮区域 | `{ submit, reset, loading }` |

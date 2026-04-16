@@ -18,11 +18,7 @@ ProForm 提供多种表单容器组件，覆盖不同的业务场景需求。
 **基础用法：**
 
 ```vue
-<ProForm
-  :layout="'horizontal'"
-  :grid="true"
-  @finish="handleSubmit"
->
+<ProForm :layout="'horizontal'" :grid="true" @finish="handleSubmit">
   <!-- 表单项 -->
 </ProForm>
 ```
@@ -30,7 +26,7 @@ ProForm 提供多种表单容器组件，覆盖不同的业务场景需求。
 **API：**
 
 | 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
+| --- | --- | --- | --- |
 | layout | 表单布局 | `'horizontal' \| 'vertical' \| 'inline'` | `'horizontal'` |
 | grid | 开启栅格化布局 | `boolean` | `false` |
 | labelCol | 标签栅格布局 | `{ span: number; offset?: number }` | - |
@@ -55,24 +51,20 @@ ProForm 提供多种表单容器组件，覆盖不同的业务场景需求。
 **基础用法：**
 
 ```vue
-<ModalForm
-  v-model:visible="visible"
-  title="新建用户"
-  @finish="handleSubmit"
->
+<ModalForm v-model:visible="visible" title="新建用户" @finish="handleSubmit">
   <ProFormText name="username" label="用户名" required />
 </ModalForm>
 ```
 
 **API：**
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| visible | 是否显示弹窗 | `boolean` | `false` |
-| title | 弹窗标题 | `string` | - |
-| width | 弹窗宽度 | `number \| string` | `520` |
-| destroyOnClose | 关闭时销毁 | `boolean` | `true` |
-| maskClosable | 点击遮罩关闭 | `boolean` | `true` |
+| 属性           | 说明         | 类型               | 默认值  |
+| -------------- | ------------ | ------------------ | ------- |
+| visible        | 是否显示弹窗 | `boolean`          | `false` |
+| title          | 弹窗标题     | `string`           | -       |
+| width          | 弹窗宽度     | `number \| string` | `520`   |
+| destroyOnClose | 关闭时销毁   | `boolean`          | `true`  |
+| maskClosable   | 点击遮罩关闭 | `boolean`          | `true`  |
 
 ---
 
@@ -101,7 +93,7 @@ ProForm 提供多种表单容器组件，覆盖不同的业务场景需求。
 **API：**
 
 | 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
+| --- | --- | --- | --- |
 | visible | 是否显示抽屉 | `boolean` | `false` |
 | title | 抽屉标题 | `string` | - |
 | width | 抽屉宽度 | `number \| string` | `378` |
@@ -127,11 +119,7 @@ ProForm 提供多种表单容器组件，覆盖不同的业务场景需求。
 **基础用法：**
 
 ```vue
-<QueryFilter
-  :collapsed="collapsed"
-  @finish="handleSearch"
-  @reset="handleReset"
->
+<QueryFilter :collapsed="collapsed" @finish="handleSearch" @reset="handleReset">
   <ProFormText name="keyword" label="关键词" />
   <ProFormSelect name="status" label="状态" :options="statusOptions" />
   <ProFormDatePicker name="createTime" label="创建时间" />
@@ -193,8 +181,8 @@ ProForm 提供多种表单容器组件，覆盖不同的业务场景需求。
 
 **API：**
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| current | 当前步骤 | `number` | `0` |
-| steps | 步骤配置 | `StepConfig[]` | - |
-| onFinish | 全部完成回调 | `(values) => Promise<void>` | - |
+| 属性     | 说明         | 类型                        | 默认值 |
+| -------- | ------------ | --------------------------- | ------ |
+| current  | 当前步骤     | `number`                    | `0`    |
+| steps    | 步骤配置     | `StepConfig[]`              | -      |
+| onFinish | 全部完成回调 | `(values) => Promise<void>` | -      |

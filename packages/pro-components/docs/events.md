@@ -12,10 +12,10 @@ ProForm 提供多种事件回调，用于处理表单生命周期。
 <script setup>
 const handleSubmit = async (values) => {
   console.log('表单值:', values);
-  
+
   // 调用 API
   await saveData(values);
-  
+
   // 返回 false 阻止默认行为
   // return false;
 };
@@ -28,8 +28,8 @@ const handleSubmit = async (values) => {
 
 **参数：**
 
-| 参数 | 类型 | 说明 |
-|------|------|------|
+| 参数   | 类型                  | 说明       |
+| ------ | --------------------- | ---------- |
 | values | `Record<string, any>` | 表单字段值 |
 
 **返回值：**
@@ -48,7 +48,7 @@ const handleSubmit = async (values) => {
 const handleValuesChange = (changedValues, allValues) => {
   console.log('变化的字段:', changedValues);
   console.log('全部字段:', allValues);
-  
+
   // 根据变化字段处理逻辑
   if ('province' in changedValues) {
     loadCities(changedValues.province);
@@ -63,10 +63,10 @@ const handleValuesChange = (changedValues, allValues) => {
 
 **参数：**
 
-| 参数 | 类型 | 说明 |
-|------|------|------|
+| 参数          | 类型                  | 说明         |
+| ------------- | --------------------- | ------------ |
 | changedValues | `Record<string, any>` | 变化的字段值 |
-| allValues | `Record<string, any>` | 全部表单值 |
+| allValues     | `Record<string, any>` | 全部表单值   |
 
 ---
 
@@ -78,7 +78,7 @@ const handleValuesChange = (changedValues, allValues) => {
 <script setup>
 const handleReset = () => {
   console.log('表单已重置');
-  
+
   // 清除相关状态
   state.value = {};
 };
@@ -110,10 +110,10 @@ const handleFieldsChange = (changedFields, allFields) => {
 
 **参数：**
 
-| 参数 | 类型 | 说明 |
-|------|------|------|
+| 参数          | 类型          | 说明       |
+| ------------- | ------------- | ---------- |
 | changedFields | `FieldData[]` | 变化的字段 |
-| allFields | `FieldData[]` | 全部字段 |
+| allFields     | `FieldData[]` | 全部字段   |
 
 **FieldData 结构：**
 
@@ -137,7 +137,7 @@ interface FieldData {
 <script setup>
 const handleFinishFailed = (errorInfo) => {
   console.log('校验失败:', errorInfo);
-  
+
   // 滚动到第一个错误字段
   const firstError = errorInfo.errorFields[0];
   scrollToField(firstError.name);
@@ -151,8 +151,8 @@ const handleFinishFailed = (errorInfo) => {
 
 **参数：**
 
-| 参数 | 类型 | 说明 |
-|------|------|------|
+| 参数      | 类型                  | 说明     |
+| --------- | --------------------- | -------- |
 | errorInfo | `ValidateErrorEntity` | 错误信息 |
 
 **ValidateErrorEntity 结构：**
@@ -179,7 +179,7 @@ const loading = ref(false);
 // 表单提交
 const handleFinish = async (values) => {
   loading.value = true;
-  
+
   try {
     await saveUser(values);
     message.success('保存成功');
@@ -258,10 +258,10 @@ onReset
 
 ## 事件对比
 
-| 事件 | 触发时机 | 用途 |
-|------|----------|------|
-| `onFinish` | 提交校验成功后 | 处理表单提交 |
-| `onValuesChange` | 字段值变化时 | 联动、计算 |
+| 事件             | 触发时机       | 用途         |
+| ---------------- | -------------- | ------------ |
+| `onFinish`       | 提交校验成功后 | 处理表单提交 |
+| `onValuesChange` | 字段值变化时   | 联动、计算   |
 | `onFieldsChange` | 字段状态变化时 | 监听字段状态 |
-| `onFinishFailed` | 提交校验失败时 | 错误处理 |
-| `onReset` | 表单重置后 | 清理相关状态 |
+| `onFinishFailed` | 提交校验失败时 | 错误处理     |
+| `onReset`        | 表单重置后     | 清理相关状态 |

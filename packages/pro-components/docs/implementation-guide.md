@@ -6,71 +6,71 @@
 
 ### 第一阶段：核心组件（高优先级）
 
-| 组件 | 优先级 | 说明 |
-|------|--------|------|
-| `ProForm` | ⭐⭐⭐⭐⭐ | 核心表单容器，其他组件基础 |
-| `ProFormText` | ⭐⭐⭐⭐⭐ | 最常用的输入组件 |
-| `ProFormSelect` | ⭐⭐⭐⭐⭐ | 最常用的选择组件 |
-| `ProFormTextArea` | ⭐⭐⭐⭐ | 多行文本输入 |
-| `ProFormDigit` | ⭐⭐⭐⭐ | 数字输入，带格式化 |
-| `ProFormDatePicker` | ⭐⭐⭐⭐ | 日期选择 |
+| 组件                | 优先级     | 说明                       |
+| ------------------- | ---------- | -------------------------- |
+| `ProForm`           | ⭐⭐⭐⭐⭐ | 核心表单容器，其他组件基础 |
+| `ProFormText`       | ⭐⭐⭐⭐⭐ | 最常用的输入组件           |
+| `ProFormSelect`     | ⭐⭐⭐⭐⭐ | 最常用的选择组件           |
+| `ProFormTextArea`   | ⭐⭐⭐⭐   | 多行文本输入               |
+| `ProFormDigit`      | ⭐⭐⭐⭐   | 数字输入，带格式化         |
+| `ProFormDatePicker` | ⭐⭐⭐⭐   | 日期选择                   |
 
 ### 第二阶段：布局系统（高优先级）
 
-| 功能 | 优先级 | 说明 |
-|------|--------|------|
+| 功能                            | 优先级     | 说明         |
+| ------------------------------- | ---------- | ------------ |
 | horizontal/vertical/inline 布局 | ⭐⭐⭐⭐⭐ | 基础布局支持 |
-| grid 栅格布局 | ⭐⭐⭐⭐ | 复杂布局需求 |
-| colProps/rowProps | ⭐⭐⭐⭐ | 栅格属性配置 |
-| ProFormGroup | ⭐⭐⭐ | 分组展示 |
+| grid 栅格布局                   | ⭐⭐⭐⭐   | 复杂布局需求 |
+| colProps/rowProps               | ⭐⭐⭐⭐   | 栅格属性配置 |
+| ProFormGroup                    | ⭐⭐⭐     | 分组展示     |
 
 ### 第三阶段：数据管理（中优先级）
 
-| 功能 | 优先级 | 说明 |
-|------|--------|------|
-| initialValues | ⭐⭐⭐⭐⭐ | 默认值设置 |
+| 功能                          | 优先级     | 说明       |
+| ----------------------------- | ---------- | ---------- |
+| initialValues                 | ⭐⭐⭐⭐⭐ | 默认值设置 |
 | setFieldsValue/getFieldsValue | ⭐⭐⭐⭐⭐ | 值操作方法 |
-| ProFormDependency | ⭐⭐⭐⭐ | 字段联动 |
-| transform/convertValue | ⭐⭐⭐ | 数据转换 |
-| onValuesChange | ⭐⭐⭐⭐ | 值变化监听 |
+| ProFormDependency             | ⭐⭐⭐⭐   | 字段联动   |
+| transform/convertValue        | ⭐⭐⭐     | 数据转换   |
+| onValuesChange                | ⭐⭐⭐⭐   | 值变化监听 |
 
 ### 第四阶段：远程数据（中优先级）
 
-| 功能 | 优先级 | 说明 |
-|------|--------|------|
-| valueEnum | ⭐⭐⭐⭐ | 枚举选项 |
-| request | ⭐⭐⭐⭐ | 远程请求 |
-| params | ⭐⭐⭐ | 参数传递 |
-| dependencies | ⭐⭐⭐ | 依赖字段 |
+| 功能         | 优先级   | 说明     |
+| ------------ | -------- | -------- |
+| valueEnum    | ⭐⭐⭐⭐ | 枚举选项 |
+| request      | ⭐⭐⭐⭐ | 远程请求 |
+| params       | ⭐⭐⭐   | 参数传递 |
+| dependencies | ⭐⭐⭐   | 依赖字段 |
 
 ### 第五阶段：结构化数据（中优先级）
 
-| 组件 | 优先级 | 说明 |
-|------|--------|------|
-| ProFormList | ⭐⭐⭐ | 动态列表 |
-| ProFormFieldSet | ⭐⭐ | 固定组合 |
+| 组件            | 优先级 | 说明     |
+| --------------- | ------ | -------- |
+| ProFormList     | ⭐⭐⭐ | 动态列表 |
+| ProFormFieldSet | ⭐⭐   | 固定组合 |
 
 ### 第六阶段：扩展容器（低优先级）
 
-| 组件 | 优先级 | 说明 |
-|------|--------|------|
-| ModalForm | ⭐⭐⭐ | 弹窗表单 |
-| DrawerForm | ⭐⭐⭐ | 抽屉表单 |
+| 组件        | 优先级 | 说明     |
+| ----------- | ------ | -------- |
+| ModalForm   | ⭐⭐⭐ | 弹窗表单 |
+| DrawerForm  | ⭐⭐⭐ | 抽屉表单 |
 | QueryFilter | ⭐⭐⭐ | 查询表单 |
-| StepsForm | ⭐⭐ | 分步表单 |
+| StepsForm   | ⭐⭐   | 分步表单 |
 
 ### 第七阶段：其他输入组件（低优先级）
 
-| 组件 | 优先级 | 说明 |
-|------|--------|------|
-| ProFormRadio | ⭐⭐⭐ | 单选框组 |
-| ProFormCheckbox | ⭐⭐⭐ | 复选框组 |
-| ProFormSwitch | ⭐⭐⭐ | 开关 |
-| ProFormTreeSelect | ⭐⭐ | 树选择 |
-| ProFormUpload | ⭐⭐ | 文件上传 |
-| ProFormCaptcha | ⭐⭐ | 验证码 |
-| ProFormSlider | ⭐ | 滑动条 |
-| ProFormRate | ⭐ | 评分 |
+| 组件              | 优先级 | 说明     |
+| ----------------- | ------ | -------- |
+| ProFormRadio      | ⭐⭐⭐ | 单选框组 |
+| ProFormCheckbox   | ⭐⭐⭐ | 复选框组 |
+| ProFormSwitch     | ⭐⭐⭐ | 开关     |
+| ProFormTreeSelect | ⭐⭐   | 树选择   |
+| ProFormUpload     | ⭐⭐   | 文件上传 |
+| ProFormCaptcha    | ⭐⭐   | 验证码   |
+| ProFormSlider     | ⭐     | 滑动条   |
+| ProFormRate       | ⭐     | 评分     |
 
 ---
 
@@ -108,15 +108,15 @@ pro-components/
 export function useProForm(props: ProFormProps) {
   const formState = reactive<Record<string, any>>({});
   const formRef = ref();
-  
+
   const submit = async () => {
     // 提交逻辑
   };
-  
+
   const resetFields = () => {
     // 重置逻辑
   };
-  
+
   return {
     formState,
     formRef,
@@ -212,11 +212,11 @@ describe('ProForm', () => {
   it('should render correctly', () => {
     // ...
   });
-  
+
   it('should submit form values', async () => {
     // ...
   });
-  
+
   it('should validate fields', async () => {
     // ...
   });

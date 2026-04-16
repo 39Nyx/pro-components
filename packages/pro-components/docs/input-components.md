@@ -20,7 +20,7 @@ const ProFormText = (props) => {
 所有表单输入组件都支持以下通用属性：
 
 | 属性 | 说明 | 类型 |
-|------|------|------|
+| --- | --- | --- |
 | name | 字段名 | `string \| string[]` |
 | label | 标签文本 | `string` |
 | rules | 校验规则 | `Rule[]` |
@@ -74,10 +74,10 @@ const ProFormText = (props) => {
 
 **特有属性：**
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| rows | 行数 | `number` | `4` |
-| maxlength | 最大长度 | `number` | - |
+| 属性      | 说明     | 类型      | 默认值  |
+| --------- | -------- | --------- | ------- |
+| rows      | 行数     | `number`  | `4`     |
+| maxlength | 最大长度 | `number`  | -       |
 | showCount | 显示字数 | `boolean` | `false` |
 
 ---
@@ -98,12 +98,12 @@ const ProFormText = (props) => {
 
 **特有属性：**
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| min | 最小值 | `number` | `-Infinity` |
-| max | 最大值 | `number` | `Infinity` |
-| precision | 小数精度 | `number` | `2` |
-| step | 步长 | `number` | `1` |
+| 属性      | 说明     | 类型     | 默认值      |
+| --------- | -------- | -------- | ----------- |
+| min       | 最小值   | `number` | `-Infinity` |
+| max       | 最大值   | `number` | `Infinity`  |
+| precision | 小数精度 | `number` | `2`         |
+| step      | 步长     | `number` | `1`         |
 
 ---
 
@@ -143,14 +143,14 @@ const ProFormText = (props) => {
 
 **特有属性：**
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| options | 选项列表 | `Option[]` | - |
-| request | 远程请求 | `() => Promise<Option[]>` | - |
-| valueEnum | 枚举值 | `Record<string, any>` | - |
-| mode | 模式 | `'single' \| 'multiple' \| 'tags'` | `'single'` |
-| showSearch | 支持搜索 | `boolean` | `false` |
-| debounceTime | 防抖时间 | `number` | `0` |
+| 属性         | 说明     | 类型                               | 默认值     |
+| ------------ | -------- | ---------------------------------- | ---------- |
+| options      | 选项列表 | `Option[]`                         | -          |
+| request      | 远程请求 | `() => Promise<Option[]>`          | -          |
+| valueEnum    | 枚举值   | `Record<string, any>`              | -          |
+| mode         | 模式     | `'single' \| 'multiple' \| 'tags'` | `'single'` |
+| showSearch   | 支持搜索 | `boolean`                          | `false`    |
+| debounceTime | 防抖时间 | `number`                           | `0`        |
 
 ---
 
@@ -170,12 +170,12 @@ const ProFormText = (props) => {
 
 **特有属性：**
 
-| 属性 | 说明 | 类型 |
-|------|------|------|
-| treeData | 树形数据 | `TreeNode[]` |
-| treeCheckable | 多选 | `boolean` |
-| showSearch | 支持搜索 | `boolean` |
-| fieldNames | 字段映射 | `object` |
+| 属性          | 说明     | 类型         |
+| ------------- | -------- | ------------ |
+| treeData      | 树形数据 | `TreeNode[]` |
+| treeCheckable | 多选     | `boolean`    |
+| showSearch    | 支持搜索 | `boolean`    |
+| fieldNames    | 字段映射 | `object`     |
 
 ---
 
@@ -195,11 +195,11 @@ const ProFormText = (props) => {
 
 **特有属性：**
 
-| 属性 | 说明 | 类型 |
-|------|------|------|
+| 属性         | 说明           | 类型                  |
+| ------------ | -------------- | --------------------- |
 | onGetCaptcha | 获取验证码回调 | `() => Promise<void>` |
-| phoneName | 手机号字段名 | `string` |
-| countDown | 倒计时秒数 | `number` |
+| phoneName    | 手机号字段名   | `string`              |
+| countDown    | 倒计时秒数     | `number`              |
 
 ---
 
@@ -223,11 +223,7 @@ const ProFormText = (props) => {
 日期范围选择器。
 
 ```vue
-<ProFormDateRangePicker
-  name="dateRange"
-  label="日期范围"
-  format="YYYY-MM-DD"
-/>
+<ProFormDateRangePicker name="dateRange" label="日期范围" format="YYYY-MM-DD" />
 ```
 
 ---
@@ -252,11 +248,7 @@ const ProFormText = (props) => {
 时间选择器。
 
 ```vue
-<ProFormTimePicker
-  name="time"
-  label="时间"
-  format="HH:mm:ss"
-/>
+<ProFormTimePicker name="time" label="时间" format="HH:mm:ss" />
 ```
 
 ---
@@ -283,11 +275,7 @@ const ProFormText = (props) => {
 复选框组。
 
 ```vue
-<ProFormCheckbox
-  name="hobbies"
-  label="爱好"
-  :options="hobbyOptions"
-/>
+<ProFormCheckbox name="hobbies" label="爱好" :options="hobbyOptions" />
 ```
 
 ---
@@ -312,12 +300,7 @@ const ProFormText = (props) => {
 滑动条。
 
 ```vue
-<ProFormSlider
-  name="volume"
-  label="音量"
-  :min="0"
-  :max="100"
-/>
+<ProFormSlider name="volume" label="音量" :min="0" :max="100" />
 ```
 
 ---
@@ -327,12 +310,7 @@ const ProFormText = (props) => {
 评分组件。
 
 ```vue
-<ProFormRate
-  name="rating"
-  label="评分"
-  :count="5"
-  allow-half
-/>
+<ProFormRate name="rating" label="评分" :count="5" allow-half />
 ```
 
 ---
@@ -353,20 +331,20 @@ const ProFormText = (props) => {
 
 **特有属性：**
 
-| 属性 | 说明 | 类型 |
-|------|------|------|
-| action | 上传地址 | `string` |
-| listType | 列表类型 | `'text' \| 'picture' \| 'picture-card'` |
-| maxCount | 最大数量 | `number` |
-| accept | 接受文件类型 | `string` |
+| 属性     | 说明         | 类型                                    |
+| -------- | ------------ | --------------------------------------- |
+| action   | 上传地址     | `string`                                |
+| listType | 列表类型     | `'text' \| 'picture' \| 'picture-card'` |
+| maxCount | 最大数量     | `number`                                |
+| accept   | 接受文件类型 | `string`                                |
 
 ## 宽度预设值
 
-| 值 | 像素 | 适用场景 |
-|----|------|----------|
-| `xs` | 104px | 短字段，如 ID、状态 |
-| `sm` | 216px | 较短字段，如姓名、电话 |
-| `md` | 328px | 标准宽度，大部分场景 |
-| `lg` | 440px | 较长字段，如网址、标签组 |
-| `xl` | 552px | 长字段 |
-| `2xl` | 664px | 超长字段 |
+| 值    | 像素  | 适用场景                 |
+| ----- | ----- | ------------------------ |
+| `xs`  | 104px | 短字段，如 ID、状态      |
+| `sm`  | 216px | 较短字段，如姓名、电话   |
+| `md`  | 328px | 标准宽度，大部分场景     |
+| `lg`  | 440px | 较长字段，如网址、标签组 |
+| `xl`  | 552px | 长字段                   |
+| `2xl` | 664px | 超长字段                 |

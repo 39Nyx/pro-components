@@ -146,12 +146,14 @@ const handleSubmit = (values) => {
       name="dateRange"
       label="日期范围"
       :convert-value="(_, values) => [values.startTime, values.endTime]"
-      :transform="(value) => ({
-        startTime: value[0],
-        endTime: value[1],
-      })"
+      :transform="
+        (value) => ({
+          startTime: value[0],
+          endTime: value[1],
+        })
+      "
     />
-    
+
     <ProFormSelect
       name="tags"
       label="标签"
@@ -230,7 +232,7 @@ const handleSubmit = (values) => {
 const handleValuesChange = (changedValues, allValues) => {
   // changedValues: 变化的字段
   // allValues: 全部表单值
-  
+
   if ('province' in changedValues) {
     // 省份变化时，重置城市
     formRef.value?.setFieldsValue({

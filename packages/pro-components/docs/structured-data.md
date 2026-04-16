@@ -22,15 +22,15 @@ ProForm 提供组件支持录入结构化的复杂数据。
 
 ### 属性
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| name | 字段名 | `string` | - |
-| label | 标签文本 | `string` | - |
-| initialValue | 默认值 | `ListItem[]` | - |
-| min | 最小数量 | `number` | - |
-| max | 最大数量 | `number` | - |
-| addButtonText | 新增按钮文本 | `string` | `'添加一项'` |
-| showCopyButton | 显示复制按钮 | `boolean` | `true` |
+| 属性           | 说明         | 类型         | 默认值       |
+| -------------- | ------------ | ------------ | ------------ |
+| name           | 字段名       | `string`     | -            |
+| label          | 标签文本     | `string`     | -            |
+| initialValue   | 默认值       | `ListItem[]` | -            |
+| min            | 最小数量     | `number`     | -            |
+| max            | 最大数量     | `number`     | -            |
+| addButtonText  | 新增按钮文本 | `string`     | `'添加一项'` |
+| showCopyButton | 显示复制按钮 | `boolean`    | `true`       |
 
 ### 操作按钮
 
@@ -85,7 +85,7 @@ const actionGuard = {
     // 返回 false 阻止新增
     return true;
   },
-  
+
   // 删除前拦截
   beforeRemoveRow: async (index, count) => {
     console.log('删除前:', index, count);
@@ -196,10 +196,12 @@ const handleSubmit = (values) => {
 <ProFormFieldSet
   name="dateRange"
   label="日期范围"
-  :transform="(value) => ({
-    startDate: value[0],
-    endDate: value[1],
-  })"
+  :transform="
+    (value) => ({
+      startDate: value[0],
+      endDate: value[1],
+    })
+  "
 >
   <ProFormDatePicker placeholder="开始日期" />
   <ProFormDatePicker placeholder="结束日期" />
@@ -238,10 +240,12 @@ const handleSubmit = (values) => {
 <ProFormFieldSet
   name="timeRange"
   label="时间范围"
-  :transform="(value) => ({
-    startTime: value[0],
-    endTime: value[1],
-  })"
+  :transform="
+    (value) => ({
+      startTime: value[0],
+      endTime: value[1],
+    })
+  "
 >
   <ProFormTimePicker placeholder="开始时间" />
   <ProFormTimePicker placeholder="结束时间" />
@@ -262,12 +266,12 @@ const handleSubmit = (values) => {
 
 ## 对比
 
-| 特性 | ProFormList | ProFormFieldSet |
-|------|-------------|-----------------|
-| 数据结构 | 多维数组 | 一维数组 |
-| 动态数量 | 支持 | 固定 |
-| 操作按钮 | 自带增删复制 | 无 |
-| 适用场景 | 动态列表录入 | 固定组合字段 |
+| 特性     | ProFormList     | ProFormFieldSet         |
+| -------- | --------------- | ----------------------- |
+| 数据结构 | 多维数组        | 一维数组                |
+| 动态数量 | 支持            | 固定                    |
+| 操作按钮 | 自带增删复制    | 无                      |
+| 适用场景 | 动态列表录入    | 固定组合字段            |
 | 数据格式 | `[{}, {}, ...]` | `[value1, value2, ...]` |
 
 ---

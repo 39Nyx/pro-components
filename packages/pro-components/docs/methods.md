@@ -149,7 +149,7 @@ const formData = ref({
 const loadData = async () => {
   const res = await fetch('/api/user/1');
   const data = await res.json();
-  
+
   // 填充表单
   formRef.value?.setFieldsValue(data);
 };
@@ -158,12 +158,12 @@ const loadData = async () => {
 const handleSubmit = async () => {
   try {
     const values = await formRef.value?.validateFields();
-    
+
     const res = await fetch('/api/user', {
       method: 'POST',
       body: JSON.stringify(values),
     });
-    
+
     console.log('提交成功');
   } catch (errorInfo) {
     console.log('校验失败:', errorInfo);
@@ -183,7 +183,7 @@ const handleReset = () => {
       <button @click="handleSubmit">提交</button>
       <button @click="handleReset">重置</button>
     </div>
-    
+
     <ProForm ref="formRef" v-model="formData">
       <ProFormText name="username" label="用户名" required />
       <ProFormText name="email" label="邮箱" required />

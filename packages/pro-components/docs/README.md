@@ -19,7 +19,7 @@ ProForm 在原有 Form 基础上增加语法糖和更多布局设置，帮助快
 ## 文档目录
 
 | 文档 | 说明 |
-|------|------|
+| --- | --- |
 | [核心组件](./core-components.md) | ProForm、ModalForm、DrawerForm 等核心表单组件 |
 | [输入组件](./input-components.md) | ProFormText、ProFormSelect 等表单输入组件 |
 | [布局功能](./layout.md) | 表单布局配置，栅格化布局 |
@@ -49,9 +49,9 @@ const handleSubmit = async (values) => {
 <template>
   <ProForm @finish="handleSubmit">
     <ProFormText name="username" label="用户名" required />
-    <ProFormSelect 
-      name="status" 
-      label="状态" 
+    <ProFormSelect
+      name="status"
+      label="状态"
       :options="[
         { label: '启用', value: 1 },
         { label: '禁用', value: 0 },

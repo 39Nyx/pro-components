@@ -23,7 +23,7 @@ ProForm 提供多种方式加载远程数据，主要用于选择类组件。
 ### 枚举配置
 
 | 属性 | 说明 | 类型 |
-|------|------|------|
+| --- | --- | --- |
 | text | 显示文本 | `string` |
 | value | 选项值（可选，默认使用 key） | `string \| number` |
 | status | 状态颜色 | `'Success' \| 'Error' \| 'Warning' \| 'Processing'` |
@@ -56,19 +56,15 @@ const statusMap = new Map([
 const fetchUserOptions = async () => {
   const response = await fetch('/api/users');
   const data = await response.json();
-  
-  return data.map(user => ({
+
+  return data.map((user) => ({
     label: user.name,
     value: user.id,
   }));
 };
 </script>
 
-<ProFormSelect
-  name="userId"
-  label="用户"
-  :request="fetchUserOptions"
-/>
+<ProFormSelect name="userId" label="用户" :request="fetchUserOptions" />
 ```
 
 ### 带参数请求
@@ -112,7 +108,7 @@ const categoryId = ref(1);
 <script setup>
 const searchUsers = async (keyword) => {
   if (!keyword) return [];
-  
+
   const response = await fetch(`/api/users?keyword=${keyword}`);
   return response.json();
 };
@@ -153,9 +149,12 @@ const form = reactive({
   city: '',
 });
 
-watch(() => form.province, () => {
-  form.city = ''; // 省份变化时清空城市
-});
+watch(
+  () => form.province,
+  () => {
+    form.city = ''; // 省份变化时清空城市
+  },
+);
 </script>
 
 <ProForm>
@@ -210,8 +209,10 @@ watch(() => form.province, () => {
 const fetchDistricts = async (params, deps) => {
   // deps = { province: '广东省', city: '深圳市' }
   const { province, city } = deps;
-  
-  const response = await fetch(`/api/districts?province=${province}&city=${city}`);
+
+  const response = await fetch(
+    `/api/districts?province=${province}&city=${city}`,
+  );
   return response.json();
 };
 </script>
@@ -233,19 +234,15 @@ const fetchDistricts = async (params, deps) => {
 ```vue
 <template>
   <ProForm>
-    <ProFormSelect
-      name="province"
-      label="省份"
-      :request="fetchProvinces"
-    />
-    
+    <ProFormSelect name="province" label="省份" :request="fetchProvinces" />
+
     <ProFormSelect
       name="city"
       label="城市"
       :request="fetchCities"
       :dependencies="['province']"
     />
-    
+
     <ProFormSelect
       name="district"
       label="区县"
@@ -265,7 +262,7 @@ const fetchProvinces = async () => {
 // 城市数据 - 依赖省份
 const fetchCities = async (_, deps) => {
   if (!deps.province) return [];
-  
+
   const res = await fetch(`/api/cities?province=${deps.province}`);
   return res.json();
 };
@@ -273,8 +270,10 @@ const fetchCities = async (_, deps) => {
 // 区县数据 - 依赖省份和城市
 const fetchDistricts = async (_, deps) => {
   if (!deps.province || !deps.city) return [];
-  
-  const res = await fetch(`/api/districts?province=${deps.province}&city=${deps.city}`);
+
+  const res = await fetch(
+    `/api/districts?province=${deps.province}&city=${deps.city}`,
+  );
   return res.json();
 };
 </script>
@@ -299,7 +298,7 @@ const fetchDistricts = async (_, deps) => {
 <script setup>
 const searchUsers = async (params, deps, { keyword }) => {
   if (!keyword || keyword.length < 2) return [];
-  
+
   const res = await fetch(`/api/users/search?keyword=${keyword}`);
   return res.json();
 };
@@ -310,13 +309,13 @@ const searchUsers = async (params, deps, { keyword }) => {
 
 ## API 总结
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| valueEnum | 枚举配置 | `Record<string, OptionConfig>` | - |
-| request | 远程请求函数 | `RequestFn` | - |
-| params | 额外参数 | `Record<string, any>` | - |
-| dependencies | 依赖字段 | `string[]` | - |
-| debounceTime | 防抖时间(ms) | `number` | `0` |
+| 属性         | 说明         | 类型                           | 默认值 |
+| ------------ | ------------ | ------------------------------ | ------ |
+| valueEnum    | 枚举配置     | `Record<string, OptionConfig>` | -      |
+| request      | 远程请求函数 | `RequestFn`                    | -      |
+| params       | 额外参数     | `Record<string, any>`          | -      |
+| dependencies | 依赖字段     | `string[]`                     | -      |
+| debounceTime | 防抖时间(ms) | `number`                       | `0`    |
 
 ### RequestFn 类型
 
@@ -325,9 +324,9 @@ type RequestFn = (
   params: Record<string, any>,
   dependencies: Record<string, any>,
   context: {
-    keyword?: string;  // 搜索关键词
+    keyword?: string; // 搜索关键词
     action?: 'init' | 'search' | 'dependency-change';
-  }
+  },
 ) => Promise<Option[]>;
 
 interface Option {

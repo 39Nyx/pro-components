@@ -26,13 +26,13 @@ ProForm 提供一些实用特性，增强表单交互体验。
 
 ### readonly vs disabled
 
-| 特性 | readonly | disabled |
-|------|----------|----------|
-| 视觉效果 | 正常显示 | 灰色/禁用样式 |
-| 表单提交 | 包含值 | 不包含值 |
-| 复制文本 | 支持 | 不支持 |
-| Tab 键聚焦 | 支持 | 不支持 |
-| 适用场景 | 展示详情 | 禁用编辑 |
+| 特性       | readonly | disabled      |
+| ---------- | -------- | ------------- |
+| 视觉效果   | 正常显示 | 灰色/禁用样式 |
+| 表单提交   | 包含值   | 不包含值      |
+| 复制文本   | 支持     | 不支持        |
+| Tab 键聚焦 | 支持     | 不支持        |
+| 适用场景   | 展示详情 | 禁用编辑      |
 
 ---
 
@@ -143,17 +143,9 @@ ProForm 会自动透传 `placeholder` 到输入组件。
 ### 自定义 placeholder
 
 ```vue
-<ProFormText 
-  name="username" 
-  label="用户名" 
-  placeholder="请输入您的用户名"
-/>
+<ProFormText name="username" label="用户名" placeholder="请输入您的用户名" />
 
-<ProFormSelect 
-  name="status" 
-  label="状态" 
-  placeholder="请选择状态"
-/>
+<ProFormSelect name="status" label="状态" placeholder="请选择状态" />
 ```
 
 ---
@@ -251,8 +243,8 @@ const values = form?.getFieldsValue();
 
 ## 特性对比表
 
-| 特性 | 说明 | 提交时 | 视觉效果 |
-|------|------|--------|----------|
-| `readonly` | 只读模式 | 包含值 | 正常显示 |
+| 特性       | 说明     | 提交时   | 视觉效果 |
+| ---------- | -------- | -------- | -------- |
+| `readonly` | 只读模式 | 包含值   | 正常显示 |
 | `disabled` | 禁用状态 | 不包含值 | 灰色禁用 |
-| `hidden` | 隐藏字段 | 包含值 | 不渲染 |
+| `hidden`   | 隐藏字段 | 包含值   | 不渲染   |

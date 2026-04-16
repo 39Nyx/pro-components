@@ -109,11 +109,11 @@ ProForm 提供灵活的布局配置，支持多种布局方式。
   name="field"
   label="字段"
   :col-props="{
-    xs: 24,  // < 576px
-    sm: 12,  // >= 576px
-    md: 8,   // >= 768px
-    lg: 6,   // >= 992px
-    xl: 4,   // >= 1200px
+    xs: 24, // < 576px
+    sm: 12, // >= 576px
+    md: 8, // >= 768px
+    lg: 6, // >= 992px
+    xl: 4, // >= 1200px
   }"
 />
 ```
@@ -124,29 +124,29 @@ ProForm 提供灵活的布局配置，支持多种布局方式。
 
 传递给 Row 组件的属性。
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| gutter | 栅格间隔 | `number \| [number, number]` | `0` |
+| 属性    | 说明         | 类型                                  | 默认值    |
+| ------- | ------------ | ------------------------------------- | --------- |
+| gutter  | 栅格间隔     | `number \| [number, number]`          | `0`       |
 | justify | 水平排列方式 | `'start' \| 'end' \| 'center' \| ...` | `'start'` |
-| align | 垂直对齐方式 | `'top' \| 'middle' \| 'bottom'` | `'top'` |
-| wrap | 是否换行 | `boolean` | `true` |
+| align   | 垂直对齐方式 | `'top' \| 'middle' \| 'bottom'`       | `'top'`   |
+| wrap    | 是否换行     | `boolean`                             | `true`    |
 
 ### colProps
 
 控制单个表单项的栅格属性。
 
-| 属性 | 说明 | 类型 | 默认值 |
-|------|------|------|--------|
-| span | 占位格数 | `number` | `24` |
-| offset | 左侧偏移格数 | `number` | `0` |
-| push | 向右移动格数 | `number` | `0` |
-| pull | 向左移动格数 | `number` | `0` |
-| xs | < 576px 响应式栅格 | `number \| object` | - |
-| sm | >= 576px 响应式栅格 | `number \| object` | - |
-| md | >= 768px 响应式栅格 | `number \| object` | - |
-| lg | >= 992px 响应式栅格 | `number \| object` | - |
-| xl | >= 1200px 响应式栅格 | `number \| object` | - |
-| xxl | >= 1600px 响应式栅格 | `number \| object` | - |
+| 属性   | 说明                 | 类型               | 默认值 |
+| ------ | -------------------- | ------------------ | ------ |
+| span   | 占位格数             | `number`           | `24`   |
+| offset | 左侧偏移格数         | `number`           | `0`    |
+| push   | 向右移动格数         | `number`           | `0`    |
+| pull   | 向左移动格数         | `number`           | `0`    |
+| xs     | < 576px 响应式栅格   | `number \| object` | -      |
+| sm     | >= 576px 响应式栅格  | `number \| object` | -      |
+| md     | >= 768px 响应式栅格  | `number \| object` | -      |
+| lg     | >= 992px 响应式栅格  | `number \| object` | -      |
+| xl     | >= 1200px 响应式栅格 | `number \| object` | -      |
+| xxl    | >= 1600px 响应式栅格 | `number \| object` | -      |
 
 ## 标签布局
 
@@ -155,10 +155,7 @@ ProForm 提供灵活的布局配置，支持多种布局方式。
 控制标签和控件的比例。
 
 ```vue
-<ProForm
-  :label-col="{ span: 4 }"
-  :wrapper-col="{ span: 20 }"
->
+<ProForm :label-col="{ span: 4 }" :wrapper-col="{ span: 20 }">
   <ProFormText name="field" label="字段" />
 </ProForm>
 ```
@@ -167,8 +164,8 @@ ProForm 提供灵活的布局配置，支持多种布局方式。
 
 24 栅格系统，常用比例配置：
 
-| 场景 | labelCol | wrapperCol |
-|------|----------|------------|
+| 场景 | labelCol      | wrapperCol     |
+| ---- | ------------- | -------------- |
 | 紧凑 | `{ span: 4 }` | `{ span: 20 }` |
 | 标准 | `{ span: 6 }` | `{ span: 18 }` |
 | 宽松 | `{ span: 8 }` | `{ span: 16 }` |
@@ -194,11 +191,11 @@ ProForm 提供灵活的布局配置，支持多种布局方式。
 
 **属性：**
 
-| 属性 | 说明 | 类型 |
-|------|------|------|
-| title | 分组标题 | `string` |
-| bordered | 是否显示边框 | `boolean` |
-| gutter | 栅格间距 | `number \| [number, number]` |
+| 属性     | 说明         | 类型                         |
+| -------- | ------------ | ---------------------------- |
+| title    | 分组标题     | `string`                     |
+| bordered | 是否显示边框 | `boolean`                    |
+| gutter   | 栅格间距     | `number \| [number, number]` |
 
 ## 布局最佳实践
 
