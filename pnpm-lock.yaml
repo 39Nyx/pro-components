@@ -1938,6 +1938,21 @@ importers:
         specifier: workspace:*
         version: link:../@core/base/typings
 
+  packages/pro-components:
+    dependencies:
+      '@vben-core/form-ui':
+        specifier: workspace:*
+        version: link:../@core/ui-kit/form-ui
+      '@vben-core/shared':
+        specifier: workspace:*
+        version: link:../@core/base/shared
+      '@vueuse/core':
+        specifier: 'catalog:'
+        version: 14.2.1(vue@3.5.32(typescript@6.0.2))
+      vue:
+        specifier: ^3.5.32
+        version: 3.5.32(typescript@6.0.2)
+
   packages/stores:
     dependencies:
       '@vben-core/preferences':
