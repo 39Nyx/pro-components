@@ -153,6 +153,10 @@
       "path": "packages/preferences"
     },
     {
+      "name": "@39nyx/pro-components",
+      "path": "packages/pro-components"
+    },
+    {
       "name": "@vben/stores",
       "path": "packages/stores"
     },
